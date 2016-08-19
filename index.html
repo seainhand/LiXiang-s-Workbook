@@ -19,17 +19,21 @@
 		}
 
 		dl{
-			width: 500px;
-			margin:20px auto;
 			font-weight: 900;
-			background: rgb(40,157,222); 
-			border:10px solid #ddd; 
+			background: rgb(40,157,222);
 		}
 
-		@media screen and (max-width: 620px) {
+		@media screen and (min-width: 1000px) {
+			dl{
+				margin:20px auto;
+				width: 500px; 
+				border:10px solid #ddd; 
+			}
+		}
+		@media screen and (max-width: 1000px) {
 			dl{
 				margin: 0;
-				width: 100%;
+				width: 100%; 
 				border:0;
 			}
 		}
