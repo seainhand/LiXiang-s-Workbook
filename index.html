@@ -330,13 +330,22 @@
 			};
 		};
 		listDl.appendChild(listFragment);
+		
+
+		var ddHight = 0
+		
+		if(-[1,]){ 
+			ddHight = 38;
+		}else{ 
+			ddHight = 40;
+		} 
 
 		var listDts = document.getElementsByTagName('dt');
 		var listDivs = document.getElementsByTagName('div');
 		for (var i = 0; i < listDts.length; i++) {
 			listDts[i].index  = i ;
 			listDts[i].display = false;
-			listDts[i].divHight = listDivs[i].children.length * 38; 
+			listDts[i].divHight = listDivs[i].children.length * ddHight; 
 			listDts[i].onclick = function(){
 				this.display = !this.display ; 
 				slideDown(this.index,this.divHight,this.display); 
