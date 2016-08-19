@@ -92,12 +92,12 @@
 				border:0;
 			}  
 			html,html,dl,dd,dt,a,p,div{
-				font-size: 72px;
+				font-size: 64px;
 			}
 		}
 		@media screen and (min-width: 1000px) { 
 			html,dl,dd,dt,a,p,div{
-				font-size: 18px;
+				font-size: 16px;
 			}
 		}
 	</style>
@@ -333,7 +333,7 @@
 		
 
 		var ddHight = 0
-		
+
 		if(-[1,]){ 
 			ddHight = 38;
 		}else{ 
@@ -354,15 +354,15 @@
 
 		function slideDown(i,dHeight,display){
 			if (display) {
-				listDivs[i].style.height = display ? (dHeight + 30)/18 + 'rem' : '0';
+				listDivs[i].style.height = display ? (dHeight + 30)/16 + 'rem' : '0';
 				listDivs[i].a = setTimeout(function(){
-					listDivs[i].style.height = display ? (dHeight - 10)/18 + 'rem' : '0'; 
+					listDivs[i].style.height = display ? (dHeight - 10)/16 + 'rem' : '0'; 
 				},400);
 				listDivs[i].b = setTimeout(function(){
-					listDivs[i].style.height = display ? (dHeight + 10)/18 + 'rem' : '0'; 
+					listDivs[i].style.height = display ? (dHeight + 10)/16 + 'rem' : '0'; 
 				},800);
 				listDivs[i].c = setTimeout(function(){
-					listDivs[i].style.height = display ? dHeight/18 + 'rem' : '0'; 
+					listDivs[i].style.height = display ? dHeight/16 + 'rem' : '0'; 
 				},1000);
 			}else{
 				clearTimeout(listDivs[i].a);
