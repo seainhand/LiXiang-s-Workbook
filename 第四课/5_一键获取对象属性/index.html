@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一键获取对象属性</title>
+	<style>
+		.btn1{
+			width: 100px;
+			background: blue;
+		}
+		.btn2{
+			background: red;
+		}
+		.btn3{
+			background: yellow;
+		}
+	</style>
+</head>
+
+<body>
+	<button class="btn1">style1</button>
+	<button class="btn2">style2</button>
+	<button class="btn3">style3</button>
+</body>
+<script>
+	var btns = document.getElementsByTagName('button');
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].addEventListener('click',function(event){
+			alert('width:'+event.target.offsetWidth+'/n background:' + getComputedStyle(event.target).getPropertyValue('background-color'));
+			//只支持IE9和IE9+
+			//addEventListener也同上
+		});
+	};
+</script>
+</html>

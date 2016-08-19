@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网站换肤</title>
+</head>
+<style>
+	nav{
+	height: 20px;
+	text-align: center;
+}
+.title{
+	display: inline-block;
+	margin: 5px;
+	padding: 10px;
+	border-radius: 5px;
+	color: #fff;
+}
+.skin{
+	margin-top: 100px;
+	height: 40px;
+	text-align: center;
+}
+.btn{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 5px;
+}
+.btn1{
+	background:black;
+}
+.btn2{
+	background:red;
+}
+.btn3{
+	background:blue;
+} 
+</style>
+<link rel="stylesheet" href="black.css">
+<body>
+	<header>
+		<nav id="nav">
+			<div class="title">html</div>
+			<div class="title">css</div>
+			<div class="title">js</div>
+			<div class="title">react</div>
+			<div class="title">react native</div>
+		</nav>
+	</header>
+	<div class="skin" id="skin">
+		<div class="btn btn1"></div>
+		<div class="btn btn2"></div>
+		<div class="btn btn3"></div>
+	</div>
+</body>
+<script>
+	var link = document.getElementsByTagName('link')[0];
+	var titles = document.getElementById('nav').getElementsByTagName('div');
+	var btns = document.getElementById('skin').getElementsByTagName('div');
+	var btns_name = ['black','red','blue'];
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].index = i;
+		btns[i].onclick = function (){
+			link['href'] = btns_name[this.index]+".css";
+		}
+	};
+		
+</script>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>李想的练习册</title>
+	<style>
+		body,dl,dt,dd{
+			margin:0;
+			padding:0;
+		}
+		a{
+			text-decoration: none;
+			color: #fff; 
+			cursor: pointer;
+		} 
+
+		a:hover{
+			text-decoration: underline;
+		}
+
+		dl{
+			width: 500px;
+			margin:100px auto;
+			font-weight: 900;
+			background: rgb(40,157,222); 
+			border:10px solid #ddd; 
+		}
+		dt,dd{
+		} 
+	 	
+		dt{ 
+			cursor: pointer;
+			font-size: 1.2em;
+			background: rgb(26,188,156);
+			border-top: 1px solid #fff ; 
+			border-bottom: 1px solid #fff ; 
+			padding: 10px; 
+			color: #fff;
+		}
+
+		dt:hover{
+			filter:alpha(opacity=70);	/*IE滤镜，透明度50%*/
+			-moz-opacity:0.7; 			/*Firefox私有，透明度50%*/
+			opacity:0.7;				/*其他，透明度50%*/
+		}
+  
+
+		dd{  				
+			border-top: 1px solid #fff ; 
+			border-bottom: 1px solid #fff ; 
+			padding: 10px; 
+			color: #fff;  
+			font-size: 16px;
+			background: rgb(40,157,222);
+		}   
+
+		div,dd,dt {   
+			-webkit-transition:  0.4s;
+		    -moz-transition:  0.4s;
+		    -o-transition:  0.4s;
+		    transition:  0.4s; 
+		}
+
+		div{ 
+			overflow: hidden;
+			height: 0; 
+		}
+	</style>
+</head>
+<body> 
+	<p>李想的练习册</p>
+	<dl></dl>
+	
+
+	<script>
+		var myList = [
+			{
+				lesson:[
+					{
+						text:'第一课'
+					},
+					{
+						text:'控制div属性',
+						href:'第一课/1_控制div属性/index.html'
+					},
+					{
+						text:'网站换肤',
+						href:'第一课/2_网站换肤/index.html'
+					},
+					{
+						text:'传参并返回',
+						href:'第一课/3_传参并返回/index.html'
+					},
+					{
+						text:'用循环变div颜',
+						href:'第一课/4_用循环变div颜色/index.html'
+					},
+					{
+						text:'鼠标移入移出改变样式',
+						href:'第一课/5_鼠标移入移出改变样式/index.html'
+					},
+					{
+						text:'鼠标移入提示框',
+						href:'第一课/6_鼠标移入提示框/index.html'
+					},
+					{
+						text:'简单nav&content',
+						href:'第一课/7_简单nav&content/index.html'
+					},
+					{
+						text:'标签切换',
+						href:'第一课/8_标签切换/index.html'
+					},
+				]
+			},
+			{
+				lesson:[
+					{
+						text:'第二课'
+					},
+					{
+						text:'下拉菜单',
+						href:'第二课/1_下拉菜单/index.html'
+					},
+					{
+						text:'求input中所有数字的和',
+						href:'第二课/2_求input中所有数字的和/index.html'
+					},
+
+					{
+						text:'模态框',
+						href:'第二课/3_模态框/index.html'
+					},
+
+					{
+						text:'函数传参改属性',
+						href:'第二课/4_函数传参改属性/index.html'
+					},
+
+					{
+						text:'鼠标移入图片便清晰',
+						href:'第二课/5_鼠标移入图片便清晰/index.html'
+					},
+
+					{
+						text:'简易选项卡',
+						href:'第二课/6_简易选项卡/index.html'
+					},
+ 
+					{
+						text:'简易js年历',
+						href:'第二课/7_简易js年历/index.html'
+					},
+
+					{
+						text:'简易相册',
+						href:'第二课/8_简易相册/index.html'
+					},
+
+					{
+						text:'全选/全部选/反选',
+						href:'第二课/9_全选/全部选/反选/index.html'
+					},
+
+					{
+						text:'filter,sort,文档碎片',
+						href:'第二课/10_filter,sort,文档碎片/index.html'
+					},
+
+					{
+						text:'简单css动画',
+						href:'第二课/11_简单css动画/index.html'
+					},
+				]
+			},
+			{
+				lesson:[
+					{
+						text:'第三课'
+					},
+					{
+						text:'用typeof',
+						href:'第三课/1_用typeof/index.html'
+					},
+					
+					{
+						text:'praseInt求和',
+						href:'第三课/2_praseInt求和/index.html'
+					},
+					{
+						text:'网页计算器',
+						href:'第三课/3_网页计算器/index.html'
+					},
+					{
+						text:'简易时钟',
+						href:'第三课/4_简易时钟/index.html'
+					},
+					{
+						text:'倒计时',
+						href:'第三课/5_倒计时/index.html'
+					},
+					{
+						text:'回到顶部JS',
+						href:'第三课/6_回到顶部JS/index.html'
+					},
+					{
+						text:'列表切换',
+						href:'第三课/7_列表切换/index.html'
+					},
+				]
+			},
+			{
+				lesson:[
+					{
+						text:'第四课'
+					},
+					{
+						text:'nav条',
+						href:'第四课/1_nav条/index.html'
+					},
+					
+					{
+						text:'自动播放一幻灯片效果',
+						href:'第四课/2_自动播放一幻灯片效果/index.html'
+					},
+					{
+						text:'网页计算器',
+						href:'第四课/3_验证/添加/删除/index.html'
+					},
+					{
+						text:'arguments应用——求出函数所有参数和',
+						href:'第四课/4_arguments应用——求出函数所有参数和/index.html'
+					},
+					{
+						text:'一键获取对象属性',
+						href:'第四课/5_一键获取对象属性/index.html'
+					},
+					{
+						text:'数组练习：各种数组方法的使用',
+						href:'第四课/6_数组练习：各种数组方法的使用/index.html'
+					},
+					{
+						text:'事件练习：封装兼容性添加、删除事件的函数',
+						href:'第四课/7_事件练习：封装兼容性添加、删除事件的函数/index.html'
+					},
+					{
+						text:'星级评分系统',
+						href:'第四课/8_星级评分系统/index.html'
+					},
+					{
+						text:'JS瀑布流',
+						href:'第四课/9_JS瀑布流/index.html'
+					},
+					{
+						text:'幽灵按钮',
+						href:'第四课/10_幽灵按钮/index.html'
+					},
+				]
+			},
+			{
+				lesson:[
+					{
+						text:'第五课'
+					},
+					{
+						text:'TODO',
+						href:'第五课/1_TODO/index.html'
+					},
+					
+					{
+						text:'可视排序',
+						href:'第五课/2_可视排序/index.html'
+					} 
+				]
+			}
+		];
+
+		var listDl = document.getElementsByTagName('dl')[0];
+		var listFragment = document.createDocumentFragment(); 
+		for (var i = 0; i < myList.length; i++) {
+			var lessonNum = document.createElement('dt'); 
+			var text = document.createTextNode(myList[i].lesson[0].text); 
+			lessonNum.appendChild(text);
+			listFragment.appendChild(lessonNum);
+			var lessonDiv = document.createElement('div');
+			for (var j = 1; j < myList[i].lesson.length; j++) {
+				var lessonName = document.createElement('dd');
+				var lessonLink = document.createElement('a');
+				var lessonNameText =document.createTextNode(j+"）"+myList[i].lesson[j].text);
+				lessonLink.href = myList[i].lesson[j].href;
+				lessonLink.appendChild(lessonNameText);
+				lessonName.appendChild(lessonLink); 
+				lessonDiv.appendChild(lessonName)
+				listFragment.appendChild(lessonDiv);
+			};
+		};
+		listDl.appendChild(listFragment);
+
+		var listDts = document.getElementsByTagName('dt');
+		var listDivs = document.getElementsByTagName('div');
+		for (var i = 0; i < listDts.length; i++) {
+			listDts[i].index  = i ;
+			listDts[i].display = false;
+			listDts[i].divHight = listDivs[i].children.length * 38; 
+			listDts[i].onclick = function(){
+				this.display = !this.display ; 
+				slideDown(this.index,this.divHight,this.display); 
+			}
+		};
+
+		function slideDown(i,dHeight,display){
+			if (display) {
+				listDivs[i].style.height = display ? dHeight + 30 + 'px' : '0';
+				listDivs[i].a = setTimeout(function(){
+					listDivs[i].style.height = display ? dHeight - 10 + 'px' : '0'; 
+				},400);
+				listDivs[i].b = setTimeout(function(){
+					listDivs[i].style.height = display ? dHeight + 10 + 'px' : '0'; 
+				},800);
+				listDivs[i].c = setTimeout(function(){
+					listDivs[i].style.height = display ? dHeight + 'px' : '0'; 
+				},1000);
+			}else{
+				clearTimeout(listDivs[i].a);
+				clearTimeout(listDivs[i].b);
+				clearTimeout(listDivs[i].c);
+				listDivs[i].style.height = '0';
+			}
+			
+		}
+
+	</script>
+</body>
+</html>	

@@ -1,0 +1,52 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.box{
+	width:999px;
+	height: auto;
+	margin: 0 auto;
+}
+
+.list-box{
+	width: 700px;
+	height: 42px;
+	margin: 0 auto;
+	border-bottom: 1px solid #eeeeee;
+}
+
+ul,li{
+	list-style-type: none;
+}
+.list{
+	list-style-type: none;
+	float: right;
+	padding-top: 10px;
+}
+
+.list-box ul li{
+	cursor: pointer;
+	width: 30px;
+	height: 26px;
+	float: left;
+	display: block;
+	background: url("listype-icon.png") no-repeat;
+}
+.changlist{
+	overflow: auto;
+	height: 1%;
+}
+.changlist .list-1-o{
+	height: 240px;
+	width: 240px;
+	border:1px solid #aaaaaa;
+	float: left;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+
+.changlist .list-2-v{
+	height: 170px;
+}

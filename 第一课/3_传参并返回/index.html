@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>传参并返回</title>
+</head>
+<style> 
+	input{
+		display: block;
+		margin: 20px auto;
+	}
+</style>
+<body>
+	<input type="text" id="input1" value="中国">
+	<input type="text" id="input2" value="北京">
+	<input type="button" id="btn" value = "传参">
+</body>
+<script>
+	var btn = document.getElementById('btn');
+	var inputs = document.getElementsByTagName('input');
+	btn.onclick = function(){
+		alert(inputs[0].value + inputs[1].value);
+	}
+</script>
+</html>

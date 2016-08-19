@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<div class="box">
+		<div class="link link_miss">
+			<span class="icon"></span>
+			<a href="#" class="button" dara-title="Hello Mission">
+				<span class="line line_top"></span>
+				<span class="line line_left"></span>
+				<span class="line line_right"></span>
+				<span class="line line_bottom"></span>
+				Mission
+			</a>
+		</div>
+		<div class="link link_play">
+			<span class="icon"></span>
+			<a href="#" class="button" dara-title="Hello Play">
+				<span class="line line_top"></span>
+				<span class="line line_left"></span>
+				<span class="line line_right"></span>
+				<span class="line line_bottom"></span>
+				Play
+			</a>
+		</div>
+		<div class="link link_touch">
+			<span class="icon"></span>
+			<a href="#" class="button" dara-title="Hello Touch">
+				<span class="line line_top"></span>
+				<span class="line line_left"></span>
+				<span class="line line_right"></span>
+				<span class="line line_bottom"></span>
+				Touch
+			</a>
+		</div>
+		<div class="tip"><em></em><span></span></div>
+	</div>
+	<script>
+		$(function(){
+			$(".link .button").hover(function() {
+				var title = $(this).attr("dara-title");
+				$(".tip em").text(title); 
+				var pos = $(this).offset().left;
+				var dis = ($(".tip").outerWidth()-$(this).outerWidth())/2; 
+				var f = pos - dis ;
+				$(".tip").css({"left":f+"px"}).animate({"opacity": 1, "top": 240+"px"}, 300);
+			},function(){
+					$(".tip").animate({"opacity": 0, "top": 210+"px"}, 300);
+			})
+		})
+	</script>
+</body>
+</html>

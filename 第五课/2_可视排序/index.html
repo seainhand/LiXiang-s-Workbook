@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>可视排序</title>
+	<style>
+		.box{ 
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			-ms-align-items: flex-end;
+			align-items: flex-end;
+		}
+		span{
+			width: 30px;
+			background: #000;
+			border: 1px solid #fff;
+			text-align: center;
+		}
+		p{
+			margin-top: -16px;
+			color: #000;
+		}
+		button{
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">排序</button>
+	<p>再次点击排序按钮可加速</p>
+	<div class="box" id="box">
+		
+	</div>
+</body>
+<script>
+
+	var arr = [];
+	var arrsarr = [];
+	var box = document.getElementById('box');
+	var btn = document.getElementById('btn');
+	function arrCreat(num,coefficient){
+		for (var i = 0; i < num; i++) {
+			arr.push(Math.round(Math.random()*coefficient));
+		};
+	}
+
+
+	function sortBubble (){
+		var temp = 0;
+		var i = 0;
+		var j = 0;
+		var temp = 0;
+		for (var i = 0; i < arr.length; i++) {
+			for (var j = 0; j < arr.length-i; j++) {
+				if (arr[j] > arr[j+1]) {
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+					arrsarr.push(JSON.parse(JSON.stringify(arr)));
+					// alert();
+				}; 
+			};
+		};  
+	}
+
+	function renderChart(a){
+		if (a) {
+			box.innerHTML = ''; 
+			var fra = document.createDocumentFragment();
+			for (var i = 0; i < a.length; i++) {
+				var span = document.createElement('span');  
+				var p = document.createElement('p');
+				span.style.height = a[i]*2 + 'px'; 
+				span.appendChild(p);
+				p.innerHTML = a[i];
+				fra.appendChild(span);
+			};
+			box.appendChild(fra);	
+		};
+	}
+
+	function run(){
+		sortBubble();
+		if (!arrsarr[0]) {
+			alert('不需要排序');
+		
+		}
+		var interv = setInterval(function(){
+			if (arrsarr[0]==null) {clearInterval(interv);};
+			renderChart(arrsarr[0]);
+			arrsarr.shift();
+		},100)
+			
+		// alert(arrsarr);
+	}
+	arrCreat(20,100);
+	renderChart(arr); 
+	btn.onclick = function(){run();};
+</script>
+</html>
+
+
+<!-- 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>可视排序</title>
+	<style>
+		.box{ 
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			-ms-align-items: flex-end;
+			align-items: flex-end;
+		}
+		span{
+			width: 30px;
+			background: #000;
+			border: 1px solid #fff;
+			text-align: center;
+		}
+		p{
+			margin-top: -16px;
+			color: #000;
+		}
+		button{
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">排序</button>
+	<div class="box" id="box">
+		
+	</div>
+</body>
+<script>
+
+	var arr = [];
+	var box = document.getElementById('box');
+	var btn = document.getElementById('btn');
+	function arrCreat(num,coefficient){
+		for (var i = 0; i < num; i++) {
+			arr.push(Math.round(Math.random()*coefficient));
+		};
+	}
+
+
+	function sortBubble (){
+		var temp = 0;
+		var i = 0;
+		var j = 0;
+		var temp = 0;
+		setInterval(function(){
+			for (var j = 0; j < arr.length-i; j++) {
+				if (arr[j] > arr[j+1]) {
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+					renderChart();
+				}; 
+			};
+			i++;
+			if(i == arr.length) {
+				return;
+			}
+		}, 500) 
+	}
+
+	function renderChart(){
+		box.innerHTML = ''; 
+		var fra = document.createDocumentFragment();
+		for (var i = 0; i < arr.length; i++) {
+			var span = document.createElement('span');  
+			var p = document.createElement('p');
+			span.style.height = arr[i]*2 + 'px'; 
+			span.appendChild(p);
+			p.innerHTML = arr[i];
+			fra.appendChild(span);
+		};
+		box.appendChild(fra);
+
+	}
+	arrCreat(20,100);
+	renderChart(); 
+	btn.onclick = function(){sortBubble();};
+</script>
+</html> -->

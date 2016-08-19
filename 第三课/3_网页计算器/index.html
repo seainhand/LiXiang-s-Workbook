@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页计算器</title>
+</head>
+<style>
+	body{
+		background:radial-gradient(circle,#fff,#aaa);
+		background:-webkit-radial-gradient(circle,#fff,#aaa);
+		background:-o-radial-gradient(circle,#fff,#aaa);
+		background:-moz-radial-gradient(circle,#fff,#aaa);
+		background-size:cover;
+	}
+	a{
+		text-decoration: none; 
+	}
+	a:link,
+	a:visited,
+	a:active { 
+		background:linear-gradient(#9dd2ea, #8bceec);
+		background:-o-linear-gradient(#9dd2ea, #8bceec);
+		background:-webkit-linear-gradient(#9dd2ea, #8bceec);
+		background:-moz-linear-gradient(#9dd2ea, #8bceec);
+		border-radius:5px;
+		box-shadow:0 7px 8px #0000ff;
+	}
+	a:hover{
+		background: #000;
+	}
+	.container{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		-webkit-flex-flow: row wrap;
+		-moz-flex-flow: row wrap;
+		-ms-flex-flow: row wrap;
+		-o-flex-flow: row wrap;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		align-content: space-around;
+		width: 460px;
+		height: 400px;
+		margin: 40px auto;
+	} 
+	.val{
+		width: 460px;
+		height: 48px;
+		padding:10px;
+		background: #555555;
+		border-radius: 5px;
+		color: #fff;
+		font-size: 3em;
+		text-align: right;
+	}
+	.button{ 
+		width: 54px;
+		height: 54px;
+		padding: 8px; 
+		text-align: center; 
+		color: #fff;
+		font-size: 3em;
+	}
+</style>
+<body>
+	<div class="container"> 
+		<div class="val" id="val">0</div>
+		<a href="javascript:void(0)"><div name="button" class="button">0</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">1</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">2</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">3</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">4</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">5</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">6</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">7</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">8</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">9</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">*</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">/</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">+</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">-</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">.</div></a>
+		<a href="javascript:void(0)"><div name="button" class="button">C</div></a> 
+		<a href="javascript:void(0)"><div name="button" class="button">=</div></a>
+	</div>
+<script>
+	var buttons = document.getElementsByTagName('a');
+	var val = document.getElementById('val');
+	var result = ''; 
+	for (var i = 0; i < buttons.length; i++) {
+		buttons[i].onclick = function (){ 
+			switch(this.innerHTML){
+				case '<div name="button" class="button">C</div>' : 
+					val.innerHTML = ''; 
+					result = '';
+					break;
+				case '<div name="button" class="button">=</div>': 
+					result = eval(val.innerText.replace(/\s/g,"")) ; 
+					val.innerHTML = result;
+					break; 
+				default:
+					result += this.innerText;
+					val.innerHTML = result;
+			}
+		}
+	};
+</script>
+</body>
+</html>

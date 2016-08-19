@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易时钟</title>
+	<style>
+		.time{
+			width: 140px;
+			margin: 40px auto;	 
+			background:radial-gradient(circle,#000,#777);
+			background:-webkit-radial-gradient(circle,#000,#777);
+			background:-o-radial-gradient(circle,#000,#777);
+			background:-moz-radial-gradient(circle,#000,#777);
+			text-align: center;
+			padding: 20px;
+			color: #fff;
+			font-weight: 900;
+		}
+		.clock{
+			width: 30px;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="time">
+		<span class="clock" id="clock1" name="clock"></span>
+		<span> 点 </span>
+		<span class="clock" id="clock2" name="clock"></span>
+		<span> 分 </span>
+		<span class="clock" id="clock3" name="clock"></span>
+		<span> 秒 </span>
+	</div>
+	<script>
+	 	var times = document.getElementsByName('clock');
+		function getDate(){
+			var date = new Date();
+			var dates = [date.getHours(),date.getMinutes(),date.getSeconds()]
+			for (var i = 0; i < dates.length; i++) {
+				times[i].innerHTML =  dates[i];
+			};
+		}
+		setInterval(getDate,1000);
+		getDate();
+	</script>
+</body>
+</html>

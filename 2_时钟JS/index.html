@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+</head>
+<body>
+
+	<div id="timetxt1">
+		
+	</div>
+	<div id="timetxt2">
+		
+	</div>
+	<button onclick="stopTime()">
+		Time Stop 
+	</button>
+	<script>
+		function startTime(){
+			var today = new Date();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds(); 
+			m = checkTime(m);
+			s = checkTime(s);
+			document.getElementById("timetxt1").innerHTML = h +":" + m + ":" + s;
+			t = setTimeout(function(){
+				startTime();
+			}, 1000);
+		}
+		function checkTime(i){
+			if(i<10){
+				i = "0"+i;
+			}
+			return i ;
+		}
+
+		function setTime(){
+			var d = new Date();
+			var t = d.toLocaleTimeString();
+			document.getElementById("timetxt2").innerHTML  = t ;
+		}
+
+		window.onload = function(){
+			startTime();
+			setTime();
+		}
+		var clock = setInterval(function(){
+				setTime();
+			}, 1000)
+		function stopTime(){
+			clearInterval(clock);
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>控制div属性</title>
+</head>
+<body style="text-align: center;">
+	<style>
+		.box{
+			width: 100px;
+			height: 100px;
+			background: #000;
+			display: block;
+			margin:20px auto;
+		}
+	</style>
+	<div class="form-group">
+		<input type="button" value="变长">
+		<input type="button" value="变高">
+		<input type="button" value="变色">
+		<input type="button" value="消失">
+		<input type="button" value="重置">
+	</div>
+	<div class="box" id="box"></div>
+	<script>
+		var box = document.getElementById('box');
+		var btns = document.getElementsByTagName('input');
+		var attrs_name = ['width','height','background','display','display'];
+		var attrs_value = ['200px','200px','blue','none','block'];  
+		for (var i = 0; i < btns.length; i++) { 
+			btns[i].index = i;
+			btns[i].onclick = function(){ 
+				//重置要在最后一个按钮上
+				if(this.index == btns.length - 1){
+					box.style.cssText = "";
+				}
+				box.style[attrs_name[this.index]] = attrs_value[this.index];
+			}
+		}; 
+
+		//js中的cssText属性只包含js操作中的值
+		//重点在于用数组存数据的行为，和改变属性的方法
+
+		//
+		//
+	</script>
+
+
+</body>
+</html>

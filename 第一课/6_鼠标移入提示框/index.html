@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移入提示框</title>
+</head>
+<style>
+body{
+	text-align: center;
+}
+	.box{
+		display: none;
+		width: 50%;
+		margin :0 auto;
+		padding:10px;
+		margin-top: -12px;
+		background: yellow;
+	}
+</style>
+<body>
+	<input id="p" value="鼠标指向我"></p>
+	<div class="box" id="box">
+		看到我了么
+	</div>
+<script>
+	var box =document.getElementById('box');
+	var p  =  document.getElementById('p');
+	p.onmouseover = function (){
+		box.style.display = 'block';
+	}
+	p.onmouseout = function (){
+		box.style.display = 'none';
+	}
+</script>
+</body>
+</html>

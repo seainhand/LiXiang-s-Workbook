@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>求input中所有数字的和</title>
+</head>
+<style>
+	body{
+		text-align: center;
+	}
+	.inp{
+		margin: 10px;
+		width: 300px;
+	}
+	.btn{
+		width: 50px; 
+		padding: 20px;
+		font-size: 2em;
+	}
+	p{
+		font-size: 5em;
+		color: red;
+	}
+</style>
+<body>
+	<input type="text" id="inp" class="inp" value="1,2,3,4,5,6">输入数字求和，数字间用半角","号分割<br>
+	<input type="button" id="btn" class="btn" value="求和"><br>
+	<p id="p"></p>
+	<script>
+		var inp = document.getElementById('inp'); 
+		var btn  =  document.getElementById('btn');
+		var p  =  document.getElementById('p');
+		inp.onkeyup = function (){
+			this.value = this.value.replace(/[^(\d)|(,)]{1,99}/,'');
+		} 
+		btn.onclick  = function(){ 
+			var val = inp.value;
+			var vals = val.split(',');
+			var sum = 0;
+			for (var v in vals){
+				sum += parseInt(vals[v]);
+			}
+			p.innerText = sum;
+		}
+	</script>
+</body>
+</html>

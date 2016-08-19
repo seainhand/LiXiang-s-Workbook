@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选/全部选/反选</title>
+	<style>
+		form{
+			width: 200px;
+			margin:40px auto; 
+			border: 1px solid;
+			border-radius: 3px;
+		}
+		.formgroup{
+			width: 75px;
+			margin:5px auto;
+		}
+		.work{
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<form action="">	
+		<div class="work formgroup">
+			<input type="checkbox" id="checkAll" /><label id="checkLabel">全都选</label><a id="inverseCheck" href="javascript:;">反选</a>	
+		</div>
+		<hr>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项1</label>
+		</div>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项2</label>
+		</div>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项3</label>
+		</div>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项4</label>
+		</div>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项5</label>
+		</div>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项6</label>
+		</div>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项7</label>
+		</div>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项8</label>
+		</div>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项9</label>
+		</div>
+		<div class="formgroup">
+			<input type="checkbox" name="checkbox"><label for="">选项10</label>
+		</div>
+	</form>
+	<script>
+		var inputs = document.getElementsByName('checkbox');
+		var checkAll = document.getElementById('checkAll');
+		var checkLabel = document.getElementById('checkLabel');
+		var inverseCheck = document.getElementById('inverseCheck');
+		function isChecked (){
+			var n = 0;
+			for (var i = 0; i < inputs.length; i++) {
+				if(inputs[i].checked){
+					n++;
+				}
+			};
+			checkAll.checked = (n == inputs.length);
+			checkLabel.innerText = n == inputs.length ? '全不选' : '全都选' ;
+		} 
+		inverseCheck.onclick = function (){
+			for (var i = 0; i < inputs.length; i++) {
+				inputs[i].checked = !inputs[i].checked;
+			};
+			isChecked();
+		};
+		checkAll.onclick = function (){
+			for (var i = 0; i < inputs.length; i++) {
+				inputs[i].checked = this.checked;
+			};
+			isChecked();
+		};
+		for (var i = 0; i < inputs.length; i++) {
+			inputs[i].onclick = function(){
+				isChecked();
+			}
+		};
+	</script>
+</body>
+</html>
