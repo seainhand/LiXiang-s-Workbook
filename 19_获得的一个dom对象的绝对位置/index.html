@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="">
+		<p>
+			2222
+		</p>
+		<input type="button" id="button">
+	</div>
+	<script type="text/javascript">
+		function offset(ele){
+			var top = ele.offsetTop;
+			var left = ele.offsetLeft;
+			while(ele.offsetParent){
+				ele=ele.offsetParent;
+				if(window.navigator.userAgent.indexOf('MSTE 9' > -1)){
+					top +=ele.offsetTop;
+					left += ele.offsetLeft;
+				}else{
+					top +=ele.offsetTop+ele.clientTop;
+					left += ele.offsetLeft+ele.clientLeft;
+				}
+			}
+			return {
+				left:left,
+				top:top
+			}
+		}
+		var botton = document.getElementById('button');
+		alert(offset(botton).top);
+		alert(offset(botton).left);
+	</script>
+</body>
+</html>

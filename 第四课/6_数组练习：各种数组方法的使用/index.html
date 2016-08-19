@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组练习：各种数组方法的使用</title>
+	<style>
+		p{ 
+			padding: 15px;
+			background: #aaaaaa;
+			color: #fff; 
+			word-break:break-word; 
+		}
+	</style>
+</head>
+<body>
+	<p>February(2),March(3),April(4),May(5),June(6),July(7),Aguest(8),September(9),October(10),November(11)
+</p>
+	<button>添加January(1)</button><button>添加December(12)</button>
+	<p>0,1,2,3,4,5,6,7,8,9</p>
+	<button>复制</button><button>还原</button>
+	<p>red,green,blue,white,yellow,black,brown</p>
+	<button>还原</button><button>删除前三项</button><button>删除第二项至第三项</button><button>在第二项后面插入(orange,purple)</button><button>替换第二项和第三项</button>
+	<script>
+		var items = [];
+		var btns = document.getElementsByTagName('button');
+		var ps = document.getElementsByTagName('p'); 
+
+		function btnReplace (a,b,obj){ 
+			if (obj.innerHTML.indexOf(a)>=0) {
+				obj.innerText = obj.innerText.replace(a,b)
+				return true;
+			}else{
+				obj.innerText = obj.innerText.replace(b,a)
+				return false;
+			}
+		}
+
+		function getArray (str){
+			items.length = 0;
+			str = str.split(',');
+			return str;
+		}
+
+		//第一组，添加删除January(1)
+		btns[0].onclick = function(){
+			items = getArray(ps[0].innerText);
+			if(btnReplace('添加','删除',this)){
+				items.unshift('January(1)');
+			}else {
+				items.shift();
+			}
+			ps[0].innerText = items.join();
+		}
+
+		//第一组，添加删除December(12)
+		btns[1].onclick = function(){
+			items = getArray(ps[0].innerText);
+			if(btnReplace('添加','删除',this)){
+				items.push('December(12)');
+			}else {
+				items.pop();
+			}
+			ps[0].innerText = items.join();
+		}
+
+		//第二组，复制
+		btns[2].onclick = function(){
+			items = getArray(ps[1].innerText);
+			ps[1].innerText = items.concat(items).join();
+		}
+
+		//第二组，还原
+		btns[3].onclick = function(){
+			items = getArray(ps[1].innerText);
+			items.length = 10;
+			ps[1].innerText = items.join();
+		}
+
+
+		//第三组，还原
+		btns[4].onclick = function(){	
+			items = ["red","green","blue","white","yellow","black","brown"];
+			ps[2].innerText = items.join();
+		}
+
+		//第三组，删除前三项
+		btns[5].onclick = function(){
+			items = getArray(ps[2].innerText);
+			items.splice(0,3);
+			ps[2].innerText = items.join();
+		}
+
+		//第三组，删除第二项到第三项
+		btns[6].onclick = function(){
+			items = getArray(ps[2].innerText);
+			items.splice(1,2);
+			ps[2].innerText = items.join();
+		}
+
+
+		//第三组，在第二项后插入orange,purple
+		btns[7].onclick = function(){
+			items = getArray(ps[2].innerText);
+			items.splice(2,0,'orange','purple');
+			ps[2].innerText = items.join();
+		}
+
+		//第三组，替换第二项和第三项
+		btns[8].onclick = function(){
+			items = getArray(ps[2].innerText);
+			items.splice(1,2,'绿色保护着你','圣光忽悠着你');
+			ps[2].innerText = items.join();
+		}
+
+	</script>
+</body>
+</html>

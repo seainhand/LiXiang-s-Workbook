@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO</title>
+	<style>
+		.box{ 
+			width: 1000px;
+			height: 1000px;
+			margin-top: 100px;
+		}
+		.item{ 
+			width: 80px;
+			margin:80px;
+			padding: 20px;
+			background: #aaaaaa;
+			color: #fff;
+			text-align: center; 
+			border-radius: 5px;
+			box-shadow: 5px 5px #dddddd;
+		}
+		b{
+			position: absolute;
+			/*float: right;*/
+			/*left: 10px;*/
+			/*top: 110px;*/
+			width: 10px;
+			height: 10px;
+			/*background:url(x.png) no-repeat;*/
+			background-size: 100%;
+			content: "";
+		}
+
+	</style>
+</head>
+<body>
+	<div class=""> 
+		<input type="text" class="input_todo" id="input_todo" value="见的多了，excited，naive，那个男人 习习蛤蛤">
+		<button class="btn" id="btn">
+			TODO
+		</button>
+	</div>
+	<div class="box" id="box"></div>
+</body>
+<script>
+	
+	var btn = document.getElementById('btn');
+	var input = document.getElementById('input_todo');
+	var box = document.getElementById('box');
+	var todos = [];
+	//兼容事件绑定
+    function addEvent(ele, event, func){
+        ele.addEventListener ? ele.addEventListener(event, func, false) : ele.attachEvent('on' + event, func)
+    }
+
+    //利用哈希表结构数组去重
+	function unique(arr) {
+	    var result = [], hash = {};
+	    for (var i = 0, ele; (ele = arr[i]) != null; i++) {
+	        if (!hash[ele]) {
+	            result.push(ele);
+	            hash[ele] = true;
+	        }
+	    }
+	    return result; 
+	}
+
+	//点击事件
+    function getTodos(){
+    	box.innerHTML = '';
+    	var num = 0;
+    	var once_todos = input.value.split(/[,，;；、\s\n]+/);
+    	for (var i = 0; i < once_todos.length; i++) {
+    		todos.push(once_todos[i]);
+    	};
+    	todos = unique(todos); 
+
+    	var fra = document.createDocumentFragment(); 
+    	for (var i = 0; i < todos.length; i++) {
+    		var item = document.createElement('div');
+    		var p = document.createElement('p');
+    		var b =  document.createElement('b'); 
+    		item.className = 'item' ; 
+    		p.innerText = todos[i]; 
+    		p.appendChild(b); 
+    		item.appendChild(p)
+    		fra.appendChild(item);
+    		// var p = document.createElement('p'); 
+    		// p.appendChild(span)
+    		// var br = document.createElement('br');
+    		// fra.appendChild(br);
+    		addEvent(item,'mouseover',function(event){
+    			var item_b =  event.target.getElementsByTagName('b')[0];
+    			item_b.innerText = 'ⅹ';
+    			item_b.onmouseover = function (event){
+    				if (event && event.stopPropagation){
+			            event.stopPropagation();    
+			        }else{
+			        	(event || window.event).cancelBubble = true; 	
+			        }	
+           		 }
+    		}); 
+    		addEvent(item,'mouseout',function(event){
+    			var ite_b =  event.target.getElementsByTagName('b')[0];
+    			ite_b.innerText = '';
+    			ite_b.onmouseover = function (event){
+                	if (event && event.stopPropagation){
+			            event.stopPropagation();    
+			        }else{
+			        	(event || window.event).cancelBubble = true; 	
+			        } 
+            	}
+    		}); 
+    	}
+    	box.appendChild(fra);
+    }
+   	
+   	addEvent(btn,'click',getTodos); 
+</script>
+</html>

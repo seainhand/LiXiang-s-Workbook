@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标移入图片便清晰</title>
+</head>
+<style>
+	li{
+		list-style: none;
+		display: inline-block;
+		opacity: 0.4;
+	}
+	img{
+		width: 230px;
+		height: 230px;
+	}
+</style>
+<body>
+	<ul>
+		<li><img src="avator1.png" alt=""></li>
+		<li><img src="avator2.png" alt=""></li>
+		<li><img src="avator3.jpg" alt=""></li>
+		<li><img src="avator4.png" alt=""></li>
+		<li><img src="avator5.jpg" alt=""></li>
+		<li><img src="avator6.jpg" alt=""></li>
+		<li><img src="avator7.png" alt=""></li>
+		<li><img src="avator8.png" alt=""></li>
+		<li><img src="avator9.jpeg" alt=""></li>
+		<li><img src="avator10.jpg" alt=""></li>
+	</ul>
+	<script>
+		var lis = document.getElementsByTagName('li')
+		for (var i = 0; i < lis.length; i++) {
+			lis[i].onmouseover = function (){
+				this.style.opacity = "1";
+			}
+			lis[i].onmouseout = function (){
+				this.style.opacity = "0.4";
+			}
+		};
+	</script>
+</body>
+</html>

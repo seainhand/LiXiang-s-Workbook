@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nav条</title>
+</head>
+<style>
+    a{
+       text-decoration: none;  
+    }
+    nav{
+        width: 910px;
+        margin: 40px auto;
+        background:linear-gradient(#aabbff, #111199);
+        background:-o-linear-gradient(#aabbff, #111199);
+        background:-webkit-linear-gradient(#aabbff, #111199);
+        background:-moz-linear-gradient(#aabbff, #111199); 
+        border-radius: 10px;
+    }
+    ul{
+        height: 2em;
+        line-height: 2em;
+        padding: 10px;
+        list-style: none;
+    }
+    li{
+        display: inline-block; 
+    }
+    li > a{
+        padding:10px 20px;
+        color: #fff;
+        border-radius: 5px;
+    }
+    li > a:hover{ 
+        background:linear-gradient(#7788ff, #331199);
+        background:-o-linear-gradient(#7788ff, #331199);
+        background:-webkit-linear-gradient(#7788ff, #331199);
+        background:-moz-linear-gradient(#7788ff, #331199);
+    }
+    .subnav{
+        display: none;
+        position:absolute;
+        top:120px;
+        width:auto;
+        padding:5px;
+        min-width:110px;
+        height:27px;
+        line-height:27px;
+        border:2px solid #09F;
+        border-radius: 5px;
+        white-space:nowrap; 
+    }
+    .arrow{
+        display:block; 
+        border-width:20px; 
+        position:absolute; 
+        top:-40px; 
+        left:32px;
+        border-style: solid ; 
+        border-color:transparent transparent #09F ;
+        font-size:0; 
+        line-height:0;
+    }
+    .arrow2{
+        display:block; 
+        border-width:20px; 
+        position:absolute; 
+        top:-37px; 
+        left:32px;
+        border-style: solid ; 
+        border-color:transparent transparent #fff ;
+        font-size:0; 
+        line-height:0;
+    }
+</style>
+<body>
+    <nav id="nav">
+    <ul>
+        <li><a href="javascript:;">站长之家</a></li>
+        <li>
+            <a href="javascript:;">行业资讯</a>
+            <div class="subnav" name="subnav">
+                <div class="arrow"></div>
+                <div class="arrow2"></div>
+                        
+                    <span>
+                        <a href="javascript:;">业界动态</a>|
+                        <a href="javascript:;">收购融资</a>|
+                        <a href="javascript:;">门户动态</a>|
+                        <a href="javascript:;">搜索引擎</a>|
+                        <a href="javascript:;">网络游戏</a>|
+                        <a href="javascript:;">电子商务</a>|
+                        <a href="javascript:;">广告传媒</a>|
+                        <a href="javascript:;">厂商开发</a>
+                    </span>
+                
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">站长在线</a>
+            <div class="subnav" name="subnav">
+                <div class="arrow"></div>
+                <div class="arrow2"></div>
+                        
+                    <span>
+                        <a href="javascript:;">站长报道</a>|
+                        <a href="javascript:;">好站推荐</a>|
+                        <a href="javascript:;">站长聚会</a>|
+                        <a href="javascript:;">站长访谈</a>|
+                        <a href="javascript:;">站长茶馆</a>|
+                        <a href="javascript:;">网站排行</a>
+                    </span>
+                
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">网站运营</a>
+            <div class="subnav" name="subnav">
+                <div class="arrow"></div>
+                <div class="arrow2"></div>
+                        
+                    <span>
+                        <a href="javascript:;">建站经验</a>|
+                        <a href="javascript:;">策划盈利</a>|
+                        <a href="javascript:;">搜索优化</a>|
+                        <a href="javascript:;">网站推广</a>|
+                        <a href="javascript:;">免费资源</a>
+                    </span>
+                
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">设计在线</a>
+            <div class="subnav" name="subnav">
+                <div class="arrow"></div>
+                <div class="arrow2"></div>
+                        
+                    <span>
+                        <a href="javascript:;">酷站推荐</a>|
+                        <a href="javascript:;">网页设计</a>|
+                        <a href="javascript:;">WEB标准</a>|
+                        <a href="javascript:;">视频处理</a>|
+                        <a href="javascript:;">设计活动</a>
+                    </span>
+                
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">网络编程</a>
+            <div class="subnav" name="subnav">
+                <div class="arrow"></div>
+                <div class="arrow2"></div>
+                        
+                    <span>
+                        <a href="javascript:;">Asp编程</a>|
+                        <a href="javascript:;">Php编程</a>|
+                        <a href="javascript:;">.Net编程</a>|
+                        <a href="javascript:;">Xml编程</a>|
+                        <a href="javascript:;">Access</a>|
+                        <a href="javascript:;">Mssql</a>|
+                        <a href="javascript:;">Mysql</a>
+                    </span>
+                
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">联盟资讯</a>
+            <div class="subnav" name="subnav">
+                <div class="arrow"></div>
+                <div class="arrow2"></div>
+                        
+                    <span>
+                        <a href="javascript:;">联盟动态</a>|
+                        <a href="javascript:;">联盟介绍</a>|
+                        <a href="javascript:;">联盟点评</a>|
+                        <a href="javascript:;">网赚技巧</a>
+                    </span>
+                
+            </div>
+        </li>
+        <li>
+            <a href="javascript:;">服务器</a>
+            <div class="subnav" name="subnav">
+                <div class="arrow"></div>
+                <div class="arrow2"></div>
+                        
+                    <span>
+                        <a href="javascript:;">Web服务器</a>|
+                        <a href="javascript:;">Ftp服务器</a>|
+                        <a href="javascript:;">Mail服务器</a>|
+                        <a href="javascript:;">Dns服务器</a>|
+                        <a href="javascript:;">Win服务器</a>|
+                        <a href="javascript:;">Linux服务器</a>|
+                        <a href="javascript:;">安全防护</a>|
+                        <a href="javascript:;">虚拟主机</a>
+                    </span>
+                
+            </div>
+        </li>        
+    </ul>    
+</div> 
+<script>
+    var get  = {
+
+        byId : function (id){
+            return document.getElementById(id);
+        },
+
+        byClass: function(sClass, oParent) {
+            var aClass = [];
+            var reClass = new RegExp("(^| )" + sClass + "( |$)");
+            var aElem = this.byTagName("*", oParent);
+            for (var i = 0; i < aElem.length; i++) reClass.test(aElem[i].className) && aClass.push(aElem[i]);
+            return aClass
+        },
+
+        byTagName: function(elem, obj) {
+            return (obj || document).getElementsByTagName(elem);
+        }
+
+    }
+    var nav = get.byId('nav');
+    var lis = get.byTagName('li',nav);
+    var subnavs = document.getElementsByName('subnav');
+    var subnav = null;
+    var timer = null;
+    for (var i = 1; i < lis.length; i++) {
+        lis[i].onmouseover = function (){
+            for (var i = 0; i < subnavs.length; i++) {
+                subnavs[i].style.display = 'none';
+            };
+
+            subnav = get.byClass('subnav',this)[0];
+
+            arrow = get.byClass('arrow',this)[0];    
+
+            arrow2 = get.byClass('arrow2',this)[0];
+
+            subnav.style.display = 'block';
+            //判断显示区域
+            if(subnav.offsetWidth + this.offsetLeft > document.body.clientWidth){
+             
+                //超出显示范围居右显示
+                subnav.style.right = 0;
+
+                //计算指标箭头显示位置
+                arrow.style.left = this.offsetLeft - subnav.offsetLeft + 50 + "px"; 
+                arrow2.style.left = this.offsetLeft - subnav.offsetLeft + 50 + "px";
+
+            }   
+
+            clearTimeout(timer);
+
+
+            // 阻止事件冒泡
+            subnav.onmouseover = function (event){
+                (event || window.event).cancelBubble = true;
+                clearTimeout(timer)
+            }
+        };
+
+        lis[i].onmouseout = function (){
+            timer = setTimeout(function () {     
+                subnav.style.display = "none";
+            },300);  
+        };
+
+    };
+</script>
+</body>
+</html>

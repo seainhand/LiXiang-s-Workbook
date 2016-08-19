@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用循环变div颜色</title>
+</head>
+<style>
+	body{text-align: center;} 
+	.box{
+		display: inline-block;
+		width: 100px;
+		height: 100px;
+		background: #000;
+		margin: 20px;
+	}
+</style>
+<body>
+	<input type="button" id="btn" value = "变红"> <br>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>  
+	<script>
+		var boxs = document.getElementsByTagName('div');
+		var btn = document.getElementById('btn');
+		btn.onclick = function(){
+			for (var i = 0; i < boxs.length; i++) {
+				boxs[i].style.background = 'red';
+			};
+		}
+	</script>
+</body>
+</html>

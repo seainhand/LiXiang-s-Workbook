@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数传参改属性</title>
+</head>
+<style>
+	body{
+		text-align: center;	
+	}
+	.box{
+		width: 200px;
+		height: 200px;
+		border-radius: 20px;
+		margin:20px auto;	
+		background: #000;
+		color: #fff;
+	}
+	.btn{ 
+		border: 0;
+		border-radius: 10px;
+		width: 40px;
+		height: 40px;
+		margin: 10px 3px; 
+	} 
+</style>
+<body>
+	<div class="form-group">
+		<label for="aname">属性名:</label>
+		<input type="text" id="aname" value="width">
+	</div>
+	<div class="form-group">
+		<label for="aval">属性值:</label>
+		<input type="text" id="aval" value="300px">
+	</div> 
+	<button value="传参" class="btn" id="btn">传参</button>
+	<button value="重置" class="btn" id="reset">重置</button> 
+	<div class="box" id="box">
+		<br>
+		<p>在上方输入框输入"属性名"及"属性值"，点击传参按钮查看效果。</p>
+	</div>
+	<script>
+		function getId(ele){
+			return document.getElementById(ele);
+		}
+		var box = getId('box');
+		var btn = getId('btn');
+		var reset = getId('reset');
+		var aval = getId('aval');
+		var aname = getId('aname'); 
+		btn.onclick = function (){
+			box.style.cssText += aname.value+":"+aval.value+";";
+		}
+		reset.onclick = function (){
+			box.style.cssText = ";";
+		}
+	</script>
+</body>
+</html>

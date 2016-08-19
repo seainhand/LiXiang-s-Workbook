@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>星级评分系统</title>
+	<style> 
+		.box{
+			width: 800px;
+			margin: 0 auto;
+		}
+		.star_empty{
+			width: 40px;
+			height: 40px;
+			display: inline-block;
+			list-style: none;
+			background: url(star_empty.png) no-repeat;
+			background-size: 100%;
+		}
+		.star{
+			width: 40px;
+			height: 40px;
+			display: inline-block;
+			list-style: none;
+			background: url(star.png) no-repeat;
+			background-size: 100%;
+		}
+		.discription{ 
+			display: none;
+			position: absolute; 
+			top:60px;
+			width: 150px;
+			height: 50px; 
+			padding:25px;
+			border: 2px solid #999999;
+			box-shadow: 3px 3px #999999;
+			border-radius: 8px;
+		}
+		.tri1{
+			display: block;
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -30px;
+			left: 85px;
+			border-width: 15px;
+	        border-style: solid ; 
+	        border-color:transparent transparent #999999 ;
+	        font-size:0; 
+	        line-height:0;
+		}
+		.tri2{
+			display: block;
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -27px;
+			left: 85px;
+			border-width: 15px;
+	        border-style: solid ; 
+	        border-color:transparent transparent #fff ;
+	        font-size:0; 
+	        line-height:0;
+		}
+		.discription_word{
+			padding: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span>点击星星就能评分</span>
+		<span class="star_empty" name="star"></span>
+		<span class="star_empty" name="star"></span>
+		<span class="star_empty" name="star"></span>
+		<span class="star_empty" name="star"></span>
+		<span class="star_empty" name="star"></span>
+		<span id="click_disc"></span>
+		<p id="discription" class="discription">
+			<span class="tri1"></span>
+			<span class="tri2"></span> 
+			<span class="discription_word" id="discription_word"></span>
+		</p>
+	</div>
+<script>
+window.onload = function (){
+	var stars = document.getElementsByName('star');
+	var discription = document.getElementById('discription');
+	var discription_word = document.getElementById('discription_word');
+	var discription_words = [
+		"很不满意|差得太离谱，与卖家描述的严重不符，非常不满",
+		"不满意|部分有破损，与卖家描述的不符，不满意",
+		"一般|质量一般，没有卖家描述的那么好",
+		"满意|质量不错，与卖家描述的基本一致，还是挺满意的",
+		"非常满意|质量非常好，与卖家描述的完全一致，非常满意"];
+	var starIndex = -1;
+	var click_disc = document.getElementById('click_disc');
+	
+	for (var i = 0; i < stars.length; i++) {
+		stars[i].index = i;
+		stars[i].onmouseover = function (){
+			discription.style.display = 'block';
+			discription.style.left = this.offsetLeft-discription.offsetWidth/2+this.offsetWidth/2+'px';
+			discription_word.innerText = discription_words[this.index];
+			fullStar(this.index);
+		}
+		stars[i].onmouseout = function (){
+			discription.style.display = 'none';
+			fullStar(starIndex);
+		}
+		stars[i].onclick = function (){
+			starIndex = this.index;
+			click_disc.innerText = this.index+1+'分|'+discription_words[this.index]
+		}
+	};
+
+	function fullStar(starNum){
+		for (var i = 0; i < stars.length; i++) {
+			stars[i].className = i<=starNum ? 'star' : 'star_empty';
+		};
+	}
+
+}
+</script>
+</body>
+</html>

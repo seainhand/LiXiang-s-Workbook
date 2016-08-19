@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易时钟</title>
+	<style> 
+		.time{
+			width: 240px;
+			height: 80px;
+			margin: 40px auto;	 
+			background:radial-gradient(circle,#000,#777);
+			background:-webkit-radial-gradient(circle,#000,#777);
+			background:-o-radial-gradient(circle,#000,#777);
+			background:-moz-radial-gradient(circle,#000,#777);
+			text-align: center;
+			padding: 20px;
+			color: #fff;
+			font-weight: 900;
+		}
+		.clock{
+			width: 60px;
+
+		}
+		.start{
+			width: 200px;
+			height: 40px;
+			background:linear-gradient(#9dd2ea, #030);
+			background:-o-linear-gradient(#9dd2ea, #030);
+			background:-webkit-linear-gradient(#9dd2ea, #030);
+			background:-moz-linear-gradient(#9dd2ea, #030); 
+			border-radius: 10px;
+			color: #fff;
+			font-size: 1.5em;
+			font-weight: 900;
+		}
+		.stop{ 
+			width: 200px;
+			height: 40px;
+			background:linear-gradient(#f00, #030);
+			background:-o-linear-gradient(#f00, #030);
+			background:-webkit-linear-gradient(#f00, #030);
+			background:-moz-linear-gradient(#f00, #030);  
+			border-radius: 10px;
+			color: #fff;
+			font-size: 1.5em;
+			font-weight: 900;
+		}
+	</style>
+</head>
+<body>
+	<div class="time"> 
+		<input type="text" class="clock" id="min" value="2">
+		<span> 分 </span>
+		<input type="text" class="clock" id="sec" value="30">
+		<span> 秒 </span>
+		<p><button class="start" id="control">启动</button></p>
+	</div>
+	<script> 
+		var min = document.getElementById('min');
+		var sec = document.getElementById('sec'); 
+		var control = document.getElementById('control');
+		var result = 0;
+		var interval = null;
+		min.onkeyup = function (){
+			this.value = this.value.replace(/[^(\d)|(,)]{1,99}/,'');
+			checkResult();
+			stop();
+		}
+		sec.onkeyup = function (){
+			this.value = this.value.replace(/[^(\d)|(,)]{1,99}/,'');
+			checkResult();
+			stop();
+		}
+		control.onclick = function (){
+			control.innerText == '启动' ? start() : stop();
+		}
+		checkResult();
+		function checkResult(){
+			window.result = parseInt(min.value)*60 + parseInt(sec.value) ;
+		}
+		function start(){
+			control.className = 'stop';
+			control.innerText = '停止';
+			window.interval =  setInterval(timergo,1000);
+		}
+		function stop(){
+			control.className = 'start';
+			control.innerText = '启动';
+			clearInterval(window.interval);
+		}
+		function timergo(){
+			window.result =  window.result - 1;
+			min.value = Math.floor(window.result / 60);
+			sec.value = window.result % 60;
+			if (result <= 0) clearInterval(window.interval);
+		}
+	</script>
+</body>
+</html>

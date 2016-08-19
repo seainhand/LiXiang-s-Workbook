@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*"> 
+	<title>AngularJs$http天气实例</title>
+	<link rel="stylesheet" href="../bootstrap.min.css">
+</head>
+<body style="padding:10px" ng-controller="MyCtrl">
+	<div class="input-group">
+	    <input type="text" ng-model="location" class="form-control" placeholder="请输入您要查询的城市名">
+		<span class="input-group-btn">
+		  <button ng-click="weatherQuery()" class="btn btn-success">查询天气</button>	
+		</span>
+	</div> 
+	  <p ng-bind="currentCity" style="margin-top:10px"></p>
+
+	  <p ng-bind="date"></p>
+
+	  <p ng-bind="weather"></p>
+
+	  <p ng-bind="temperature"></p> 
+</body>
+<script src="angular.js"></script>
+<script type="text/javascript"> 
+	angular.module('app', [])
+	.config(function($httpProvider){
+
+	})
+	.controller('MyCtrl',function($scope,$http){
+		$scope.location = "";
+		$scope.weatherQuery = function(){
+			$http.jsonp('http://api.map.baidu.com/telematics/v3/weather?location='+$scope.location+'&output=json&ak=VBInQteHcv8G95umFQCzHGgE&callback=JSON_CALLBACK')
+			.success(function(data){
+				if (data.error==0) {
+					$scope.currentCity = data.results[0].currentCity;
+					$scope.data = data.results[0].weather_data[0];
+					$scope.date = $scope.data.date;
+					$scope.weather = $scope.data.weather;
+					$scope.temperature = $scope.data.temperature;
+				} else{
+					$scope.currentCity = "对不起,请输入正确的城市名";
+					$scope.date = "";
+					$scope.weather = "";
+					$scope.temperature = "";
+				};
+			}) 
+		}
+	})
+</script>
+</html>

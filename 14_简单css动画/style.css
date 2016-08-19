@@ -1,0 +1,59 @@
+.circle{
+	width: 20em;
+	height: 20em;
+	border: 1px solid #c0c0c0;
+	box-shadow: 0 0 5px #c0c0c0;
+	border-radius: 50%;
+	background-color: yellowgreen;
+	transition:background-color 1s ease-in-out 0s;
+	animation:beat 2s ease-in-out infinite;
+}
+.circle:hover{
+	background-color: orange; 
+}
+.circle:active {
+    background-color: orangered;
+    transform: scale(1.2);
+}
+
+
+.square{
+	margin: 0 5em;
+	width: 20em;
+	height: 20em;
+	border:1px solid #c0c0c0;
+	box-shadow: 0 0 5px #c0c0c0;
+	background-color: yellowgreen;
+	transition:background-color 1s ease-in-out 0s; 
+	animation:breath 2s ease-in-out infinite;
+}
+.square:hover{
+	background-color: orange; 
+}
+@keyframes breath {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes beat {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

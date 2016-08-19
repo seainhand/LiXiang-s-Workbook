@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易js年历</title>
+</head>
+<style> 
+	.container{
+		width: 290px;
+		height: 290px;
+		margin: 40px auto;
+		padding: 10px;
+		background: #dddddd;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		-webkit-flex-flow: row wrap;
+		-moz-flex-flow: row wrap;
+		-ms-flex-flow: row wrap;
+		-o-flex-flow: row wrap;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		align-content: space-around;
+	}
+	.months{
+		width: 40px;
+		height: 20px;
+		padding: 20px 10px;
+		border-radius: 5px;
+		background:#333333;
+		color: #fff;
+		text-align: center;
+	}
+	.selected{
+		background:#fff;
+		color: #ff0000;
+	}
+	.discription{
+		width: 250px;
+		height: 30px;
+		padding: 10px;
+		background:#eeeeee;
+	}
+	p{
+		margin: 0;
+		font-weight: 900;
+	}
+	span{
+		margin-top: 2px;
+	}
+
+</style>
+<body>
+	<div class="container" id="container">
+		<div class="months selected" name="months">1月</div>
+		<div class="months" name="months">2月</div>
+		<div class="months" name="months">3月</div>
+		<div class="months" name="months">4月</div>
+		<div class="months" name="months">5月</div>
+		<div class="months" name="months">6月</div>
+		<div class="months" name="months">7月</div>
+		<div class="months" name="months">8月</div>
+		<div class="months" name="months">9月</div>
+		<div class="months" name="months">10月</div>
+		<div class="months" name="months">11月</div>
+		<div class="months" name="months">12月</div>
+		<div class="discription" id="discription">
+			<p>一月</p>
+			<span>JAN</span>
+		</div>
+	</div>
+<script>
+	var mons = document.getElementsByName('months');
+	var p = document.getElementById('discription').getElementsByTagName('p')[0];
+	var span = document.getElementById('discription').getElementsByTagName('span')[0];
+	var ps = ['一月','二月','三月','四月','五月','六月',
+			  '七月','八月','九月','十月','十一月','十二月'];
+	var spans = ['JAN','FER','MAR','APR','MAY','JUN','JULM','AUG','SEP','OCT','NOV','DEC'];
+	for (var i = 0; i < mons.length; i++) {
+		mons[i].index = i;
+		mons[i].onmouseover = function(){
+			for (var j = 0; j < mons.length; j++) {mons[j].className = "months";};
+			this.className = "months selected ";
+			p.innerText = ps[this.index];
+			span.innerText = spans[this.index];
+		}
+	};
+</script>
+</body>
+</html>

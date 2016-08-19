@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单</title>
+</head>
+<style>
+	li{
+		list-style: none;
+	}
+	.main{
+		width: 100px;
+		margin:0 auto;
+	}
+	.btn{
+		width: 100px;
+		padding: 5px;
+		background: blue;
+		color: #fff; 
+	}
+	.drop{
+		display: none;
+		width: 60px;
+		background:yellow; 
+	}	
+	.drop > li{
+		padding:5px;
+	}
+</style>
+<body>
+	<div class="main">
+		<div class="btn" id="btn">
+			鼠标点击我
+		</div>
+		<div class="drop" id="drop">
+			<li>看我</li>
+			<li>看看我</li>
+		</div>
+	</div>
+	<script>
+		var btn = document.getElementById('btn');
+		var drop = document.getElementById('drop');
+		btn.onclick =  function() {
+			drop.style.display = drop.style.display=='block' ? 'none' : 'block';
+		} 
+		var lis = drop.getElementsByTagName('li');
+		for (var i = 0; i < lis.length; i++) {
+			lis[i].onmouseover = function(){
+				this.style.background = 'red';
+			};
+			lis[i].onmouseout = function(){
+				this.style.cssText = '';
+			}
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ListStyle</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="list-box">
+			<ul class="list">
+				<li class="list_1" id="list_1" style="background-position:0px -26px" onclick="olist()"></li>
+				<li class="list_2" id="list_2" style="background-position:-30px -26px" onclick="vlist()"></li>
+			</ul>
+		</div>
+		<div class="changlist" id="changlist">
+			<li class="list-1-o">
+				<div class="lession-info">
+					<img src="lesson.png" alt="" style="width:240px">
+					<span>hhhh</span>
+				</div>
+			</li>
+			<li class="list-1-o">
+				<div class="lession-info">
+					<img src="lesson.png" alt="" style="width:240px">
+					<span>hhhh</span>
+				</div>
+			</li>
+			<li class="list-1-o">
+				<div class="lession-info">
+					<img src="lesson.png" alt="" style="width:240px">
+					<span>hhhh</span>
+				</div>
+			</li>
+			<li class="list-1-o">
+				<div class="lession-info">
+					<img src="lesson.png" alt="" style="width:240px">
+					<span>hhhh</span>
+				</div>
+			</li>
+			<li class="list-1-o">
+				<div class="lession-info">
+					<img src="lesson.png" alt="" style="width:240px">
+					<span>hhhh</span>
+				</div>
+			</li>
+			<li class="list-1-o">
+				<div class="lession-info">
+					<img src="lesson.png" alt="" style="width:240px">
+					<span>hhhh</span>
+				</div>
+			</li>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	function olist(){ 
+		document.getElementById("list_1").style.backgroundPosition="0px -26px";
+		document.getElementById("list_2").style.backgroundPosition="-30px -26px";
+		var list = document.getElementById("changlist").childNodes;
+		for (var i = 0; i < list.length; i++) {
+			list[i].className = "list-1-o";
+		}
+	}
+
+	function vlist(){ 
+		document.getElementById("list_1").style.backgroundPosition="0px 0px";
+		document.getElementById("list_2").style.backgroundPosition="-30px 0px";
+		var list = document.getElementById("changlist").childNodes;
+		for (var i = 0; i < list.length; i++) {
+			list[i].className = "list-2-v";
+		}
+	}
+</script>
+</html>

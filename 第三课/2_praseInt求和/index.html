@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>praseInt求和</title>
+	<style>
+		.form-group{
+			width: 400px;
+			margin: 40px auto;
+		}
+		button{
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div class="form-group">
+		<input type="text">
+		<span> + </span>
+		<input type="text">
+		<span> = </span>
+		<span id="result">?</span>
+		<button>求和</button>
+	</div>
+	<script>
+		var inputs  =  document.getElementsByTagName('input');
+		for (var i = 0; i < inputs.length; i++) {
+			inputs[i].onkeyup = function (){
+				this.value = this.value.replace(/[^\d]/,'');
+			}
+		};
+		document.getElementsByTagName('button')[0].onclick = function (){
+			document.getElementById('result').innerText = parseInt(inputs[0].value) +parseInt(inputs[1].value);
+		}
+	</script>
+</body>
+</html>

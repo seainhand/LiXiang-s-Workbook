@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>瞎布局</title>
+	<style>
+	body{
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+	}
+		.c1{
+			width: 400px;
+			height: 300px;
+			margin-left: 20px;
+			border:1px solid #000; 
+		}
+		.a1{   
+			/*float: left;*/
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			background:blue;
+		}
+		.b1{   
+			display: inline-block;
+			margin: 0 10%;
+			width: 50%;
+			height: 100px;
+			background:yellow;
+		}
+		
+
+
+		.c2{    
+			width: 400px;
+			height: 300px;
+			margin-left: 20px;
+			border:1px solid #000; 
+		}
+		.a2{   
+			position: relative;
+			display: inline-block;
+			top: 50%;
+			margin: 0 auto;
+			margin-top: -50px;
+			width: 100px;
+			height: 100px;
+			background:blue;
+		}
+		.b2{ 
+			position: relative;
+			display: inline-block;
+			top: 50%;
+			margin: 0 auto;
+			margin-top: -50px;
+			width: 100px;
+			height: 100px;
+			background:yellow;
+		}
+		
+
+
+
+
+		.c3{    
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			-ms-align-items: center;
+			align-items: center;
+			justify-content: space-around; 
+			width: 400px;
+			height: 300px;
+			margin-left: 20px;
+			border:1px solid #000; 
+		}
+		.a3{    
+			width: 100px;
+			height: 100px;
+			background:blue;
+		}
+		.b3{  
+			width: 100px;
+			height: 100px;
+			background:yellow;
+		}
+		
+
+	</style>
+</head>
+<body>
+	<div class="c1">
+		<div class="a1"></div>
+		<div class="b1"></div>
+	</div> 
+	<div class="c2">
+		<div class="a2"></div>
+		<div class="b2"></div>
+	</div>
+	<div class="c3">
+		<div class="a3"></div>
+		<div class="b3"></div>
+	</div>
+</body>
+</html>

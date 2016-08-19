@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQ隐现、淡出入、滑动、回调</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<style type="text/css">
+	*{
+		margin: 10px;
+
+	}
+	div{
+		width: 100px;
+		height: 100px;
+		float:left;
+	} 
+	#content,#flipshow,#fliphide,#fliptoggle{
+		margin-top: 0px;
+		margin-bottom: 0px;
+		width: 1000px;
+		height: 20px;
+		padding: 5px;
+		text-align: center;
+		background-color: #3399ff;
+		border: solid 1px gray;
+		float:none; 
+	}
+	#content{
+		padding-top: 25px;
+		height: 50px;
+		display: none;
+	}
+</style>
+<body>
+	<script>
+		$("<p>消失</p>").appendTo(document.body);
+		for (var i = 0; i < 5; i++) {
+ 			$("<div>").appendTo(document.body);
+ 			$("div").css({"float":"left","background-color":"#eeeccc"});  
+
+		};
+		$("div").click(function() {
+			$(this).hide(500, function() {
+				$(this).remove();
+			});
+		});
+	</script>
+	<br>
+	<p style="margin-top:125px">淡出入</p>
+	<button id="in">fade in</button>
+	<button id="out">fade out</button>
+	<button id="toggle">fade toggle</button>
+	<button id="to">fade to</button>
+	<br/>
+	<div id="div1" style="background-color: red;display:none;;"></div>
+	<div id="div2" style="background-color: blue;display:none;"></div>
+	<div id="div3" style="background-color: yellow;display:none;"></div>
+	<script>	
+	$(document).ready(function() {
+		$("#in").on('click', function() {
+			$("#div1").fadeIn(500);
+			$("#div2").fadeIn(500);
+			$("#div3").fadeIn(500);
+			/* Act on the event */
+		});
+
+		$("#out").on('click', function() {
+			$("#div1").fadeOut(500);
+			$("#div2").fadeOut(500);
+			$("#div3").fadeOut(500);
+			/* Act on the event */
+		});
+
+		$("#to").on('click', function() {
+			$("#div1").fadeTo(500,0.1);
+			$("#div2").fadeTo(500,0.5);
+			$("#div3").fadeTo(500,0.9);
+			/* Act on the event */
+		});
+
+		$("#toggle").on('click', function() {
+			$("#div1").fadeToggle(500);
+			$("#div2").fadeToggle(500);
+			$("#div3").fadeToggle(500);
+			/* Act on the event */
+		});
+	});	
+	</script>
+	<p style ="margin-top: 125px;">滑动</p>
+	<div id="flipshow">出现</div>		
+	<div id="fliphide">隐藏</div>	
+	<div id="fliptoggle">出/隐</div>				
+	<div id="content">Hello World</div>
+	<script>
+		$(document).ready(function() {
+			$("#flipshow").click(function() {
+				$("#content").slideDown(500);/* Act on the event */
+			});
+
+			$("#fliphide").click(function() {
+				$("#content").slideUp(500);/* Act on the event */
+			});
+
+			$("#fliptoggle").click(function() {
+				$("#content").slideToggle(500);/* Act on the event */
+			});
+		});
+	</script>
+
+
+	<p style ="margin-top: 25px;">回调</p>
+	<p id="pid">Hello World</p>
+	<button id="phide">执行</button>
+	<script>
+		$(document).ready(function() {
+			$("#phide").on('click',function() {
+				$("#pid").hide(500, function() {
+					alert("回调喽~");
+				});
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件练习：封装兼容性添加、删除事件的函数</title>
+	<style>
+		.btns{
+			width: 300px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<pre>
+		&lt;script type="text/javascript"&gt;
+			var EventUtil = {
+				addHandler : function (ele,event,func){
+				//测试兼容性 IE只能用attachEvent
+					ele.addEventListener ? ele.addEventListener(event, func, false) : ele.attachEvent('on' + event, func)
+				},
+				removeHandler : function (ele.event,func){
+					ele.removeEventListener ? ele.removeEventListener(event, func, false) : ele.detachEvent('on' + event, func)
+				},
+				addLoadHandler : function (func){
+					this.addHandler(widow,'load',func)
+				}
+			}
+		&lt;/script&gt;
+	</pre>
+	<div class="btns">
+		<button>毫无用处的按钮</button>
+		<button>绑定click</button>
+		<button>解除绑定</button>
+	</div>
+</body>
+<script>
+	var EventUtil = {
+		addHandler : function (ele,event,func){
+			//测试兼容性 IE只能用attachEvent
+			ele.addEventListener ? ele.addEventListener(event, func, false) : ele.attachEvent('on' + event, func)
+		},
+		removeHandler : function (ele,event,func){
+			ele.removeEventListener ? ele.removeEventListener(event, func, false) : ele.detachEvent('on' + event, func)
+		},
+		addLoadHandler : function (func){
+			this.addHandler(window,'load',func)
+		}
+	}
+	EventUtil.addLoadHandler(function(){
+		var btns = document.getElementsByTagName('button');
+		EventUtil.addHandler(btns[1],'click',function(){
+			EventUtil.addHandler(btns[0],'click',funcHandler);
+			btns[0].innerText = '点我下试试';
+		});
+
+		EventUtil.addHandler(btns[2],'click',function(){
+			EventUtil.removeHandler(btns[0],'click',funcHandler);
+			btns[0].innerText = '毫无用处的按钮';
+		});
+
+		function funcHandler (){
+			alert('事件绑定成功');
+		}
+	})
+</script>
+</html>

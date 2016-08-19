@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模态框</title>
+</head>
+<style>
+	body{
+		text-align: center;
+	}
+	.btn{
+		margin-top: 50px;
+		padding: 20px;
+		background: rgb(52,122,188);
+		border:0px;
+		border-radius: 5px; 
+		box-shadow:2px 2px 3px #aaaaaa;
+		color: #fff;
+		text-align: center;
+		font-size: 2em;
+
+	}
+	.opa{
+		transition:  2s;
+		-moz-transition:  2s;	/* Firefox 4 */
+		-webkit-transition:  2s;	/* Safari 和 Chrome */
+		-o-transition:  2s;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background:#000;
+		filter:alpha(opacity=50);
+		-moz-opacity: 0.5;
+		opacity: 0.5;
+		display: none;
+	}
+	.win{
+		transition:  2s;
+		-moz-transition:  2s;	/* Firefox 4 */
+		-webkit-transition:  2s;	/* Safari 和 Chrome */
+		-o-transition:  2s;
+		position: absolute; 
+		top:230px;
+		left: 40%;
+		width: 20%;
+		height: 200px;
+		padding-top: 30px;
+		border-radius: 10px;
+		color: #000;
+		background:rgba(255,255,255,0.8);
+		font-size: 2em;
+		display: none;	
+	}
+</style>
+<body>
+	<input type="button" class="btn" id="btn" value="模态框">
+	<div class="opa" id="opa"></div>
+	<div class="win" id="win">我就是模态窗<p>点黑色部分返回</p></div>
+	<script>
+		function getId(ele){
+			return document.getElementById(ele);
+		}
+		var btn = getId('btn');
+		var opa = getId('opa');
+		var win = getId('win');
+		btn.onclick = function(){
+			opa.style.display = 'block';
+			win.style.display = 'block';
+		}
+		opa.onclick = function(){
+			opa.style.display = 'none';
+			win.style.display = 'none';
+		}
+	</script>
+</body>
+</html>

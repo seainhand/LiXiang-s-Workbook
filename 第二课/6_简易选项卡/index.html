@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易选项卡</title>
+</head>
+<style>
+	body{
+		text-align: center;
+	}
+	ul{
+		width: 296px;
+		padding:0;
+		margin:0 auto;
+		text-align: center; 
+		background: #000;
+		color: #fff;
+	}
+	li{
+		margin-left:-4px;
+		padding:10px; 
+		list-style: none;
+		display: inline-block; 
+	}
+	section{
+		margin:0 auto;
+	}
+	.s1 {
+		display: block;
+	}
+	.s2{
+		display: none;
+	}
+	.s3{
+		display: none;
+	}
+</style>
+<body>
+	<ul>
+		<li id="img1">第一张图片</li>
+		<li id="img2">第二张图片</li>
+		<li id="img3">第三张图片</li>
+	</ul>
+	<section class="s1"><img src="avator1.png" alt=""></section>
+	<section class="s2"><img src="avator2.png" alt=""></section>
+	<section class="s3"><img src="avator4.png" alt=""></section>
+	<script> 
+		var tags = document.getElementsByTagName('li');
+		var scts = document.getElementsByTagName('section');
+		for (var i = 0; i < tags.length; i++) {
+			tags[i].index = i;
+			tags[i].onmouseover = function(){
+				for (var j = 0; j < scts.length; j++) {
+					scts[j].style.display = 'none';
+					tags[j].style.background = "#000";
+					tags[j].style.color = "#fff";
+				};
+				scts[this.index].style.display = 'block'; 
+				this.style.background = "rgba(255,255,255,0.8)";
+				this.style.color = "#000"; 
+			} 
+		};
+	</script>
+</body>
+</html>

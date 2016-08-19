@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易相册</title>
+	<style>
+		
+	.container{
+		width: 290px;
+		height: 428px;
+		margin: 40px auto;
+		padding: 10px;
+		background: #dddddd;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		-webkit-flex-flow: row wrap;
+		-moz-flex-flow: row wrap;
+		-ms-flex-flow: row wrap;
+		-o-flex-flow: row wrap;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		align-content: space-around;
+	}
+	.imgc{ 
+		width: 60px;
+		height: 60px;
+		cursor: pointer;
+	}
+	img{
+		width: 60px;
+		height: 60px;
+
+	}
+	.selected{
+		background:#fff;
+		color: #ff0000;
+	} 
+	.bigc{
+		width: 274px;
+		height: 274px;
+	}
+	.imgbig{
+		position: relative;
+		width: 274px;
+		height: 274px; 
+	}
+	.load{
+		display: none;
+		position: absolute;  
+		width: 274px;
+		height: 274px;
+		background: url(load.gif) 50% 50% no-repeat;
+		background-size: 150px 150px;
+		opacity: 0.5;
+		z-index: 100;
+	}
+	</style>
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="imgc"><img class="img selected" name="img" src="avator1.png"></div>
+		<div class="imgc"><img class="img" name="img" src="avator2.png"></div>
+		<div class="imgc"><img class="img" name="img" src="avator3.png"></div>
+		<div class="imgc"><img class="img" name="img" src="avator4.jpg"></div>
+		<div class="imgc"><img class="img" name="img" src="avator5.png"></div>
+		<div class="imgc"><img class="img" name="img" src="avator6.png"></div>
+		<div class="imgc"><img class="img" name="img" src="avator7.jpg"></div>
+		<div class="imgc"><img class="img" name="img" src="avator8.jpg"> </div>
+		<div class="bigc"><div class="load" id="load"></div><img class="imgbig" id="imgbig"  src="avator1.png"></div>
+	</div>
+<script>
+	var imgs = document.getElementsByName('img');
+	var imgbig = document.getElementById('imgbig');
+	var load = document.getElementById('load');
+	for (var i = 0; i < imgs.length; i++) {
+		imgs[i].index = i;
+		imgs[i].onmouseover = function(){
+			var img = new Image();
+			img.src = imgbig.src = this.src;
+			load.style.display = 'block';
+			img.complete ? load.style.display = 'none':load.onload = function(){load.style.display = 'none';};
+		}
+	};
+</script>
+</body>
+</html>
