@@ -333,9 +333,8 @@
 		
 
 		var ddHight = document.getElementsByTagName('dd')[0].offsetHeight;
+ 		if(ddHight>100) ddHight = ddHight/4;
  
-
-		alert(document.getElementsByTagName('dd')[0].offsetHeight);
 
 		var listDts = document.getElementsByTagName('dt');
 		var listDivs = document.getElementsByTagName('div');
