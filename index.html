@@ -332,13 +332,10 @@
 		listDl.appendChild(listFragment);
 		
 
-		var ddHight = 0
+		var ddHight = document.getElementsByTagName('dd')[0].offsetHeight;
+ 
 
-		if(-[1,]){ 
-			ddHight = 38;
-		}else{ 
-			ddHight = 40;
-		} 
+		alert(document.getElementsByTagName('dd')[0].offsetHeight);
 
 		var listDts = document.getElementsByTagName('dt');
 		var listDivs = document.getElementsByTagName('div');
