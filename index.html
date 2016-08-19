@@ -19,26 +19,13 @@
 		}
 
 		dl{
+			margin:20px auto;
+			width: 500px; 
+			border:10px solid #ddd; 
 			font-weight: 900;
 			background: rgb(40,157,222);
 		}
-
-		@media screen and (min-width: 1000px) {
-			dl{
-				margin:20px auto;
-				width: 500px; 
-				border:10px solid #ddd; 
-			}
-		}
-		@media screen and (max-width: 1000px) {
-			dl{
-				margin: 0;
-				width: 100%; 
-				border:0;
-			}
-		}
-		dt,dd{
-		} 
+   
 	 	
 		dt{ 
 			cursor: pointer;
@@ -81,6 +68,21 @@
 			text-align: center;
 			margin:10px auto;
 			color: #aaa;
+		}
+		@media screen and (max-width: 1000px) {
+			dl{
+				margin: 0;
+				width: 100%; 
+				border:0;
+			}
+			dt{
+				font-size: 4.8rem;
+				padding: 40px;
+			}
+			dd{
+				font-size: 4rem;
+				padding: 40px;
+			}
 		}
 	</style>
 </head>
