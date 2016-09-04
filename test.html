@@ -4,51 +4,17 @@
 	<meta charset="UTF-8">
 	<title>李想的练习册</title>
 </head>
-<body>
-	<body>
-<h1> test </h1>
-  <input type="button" id="slide" value =" Slide Down "/>
-  <span id="log" style="position:absolute; left:10px; top:150px;"></span>
-  <br />
-  <div id="slider">
-     content goes here
-  </div>
- <script>
-   
-var minheight = 20;
-var maxheight = 300;
-var time = 1000;
-var timer = null;
-var toggled = false;
- 
-window.onload = function() {
-  var controler = document.getElementById('slide');
-  var slider = document.getElementById('slider');
-  slider.style.height = minheight + 'px';
-  controler.onclick = function() {  
-    clearInterval(timer);
-    var instanceheight = parseInt(slider.style.height);
-    var init = (new Date()).getTime();
-    var height = (toggled = !toggled) ? maxheight: minheight; 
-     
-    var disp = height - parseInt(slider.style.height);
-    timer = setInterval(function() {
-      var instance = (new Date()).getTime() - init;
-      if(instance < time ) {
-        var pos = Math.floor(disp * instance / time);
-        result = instanceheight + pos;
-        slider.style.height =  result + 'px';
-        document.getElementById('log').innerHTML = 'Current Height : <b>' + result + '</b><br /> Current Time : <b>' + instance + '</b>';
-      }else {
-        slider.style.height = height + 'px'; //safety side ^^
-        clearInterval(timer);
-        controler.value = toggled ? ' Slide Up ' :' Slide Down ';
-        document.getElementById('log').innerHTML = 'Current Height : <b>' + height + '</b><br /> Current Time : <b>' + time + '</b>';
-      }
-    },1);
-  };
-};
-</script>
-</body>
+<body> 
+<script> 
+  var sb  =  {}
+  var arr = ['aa','bb','cc','dd']
+  arr.push('hehe')
+  sb["abcd"] = JSON.stringify(arr) 
+
+  alert(JSON.parse(sb["abcd"]))
+  var keke = JSON.parse(sb["abcd"])
+  keke.push('values')
+  alert(keke)
+</script> 
 </body>
 </html>
